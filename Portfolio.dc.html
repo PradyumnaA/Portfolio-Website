@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; }
+    @keyframes scrollBounce { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(8px); } }
+    a { color: oklch(0.78 0.14 195); text-decoration: none; }
+    a:hover { color: oklch(0.86 0.13 195); }
+    ::selection { background: oklch(0.78 0.14 195 / 0.3); }
+  </style>
+</helmet>
+
+<div ref="{{ setRootRef }}" style="--bg: oklch(0.16 0.02 255); --panel: oklch(0.205 0.025 255); --ink: oklch(0.93 0.01 255); --muted: oklch(0.66 0.02 255); --accent: oklch(0.78 0.14 195); --accent2: oklch(0.78 0.13 150); --border: oklch(0.32 0.02 255); --font-head: 'Space Grotesk', sans-serif; --font-mono: 'Space Mono', monospace; background: var(--bg); color: var(--ink); font-family: var(--font-head); min-height: 100vh; overflow-x: hidden;">
+
+  <nav style="position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; background: oklch(0.16 0.02 255 / 0.82); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border);">
+    <a href="#top" style="font-family: var(--font-mono); font-size: 15px; color: var(--ink);">pradyumna<span style="color: var(--accent);">.</span>dev</a>
+    <div style="display: flex; gap: 28px;">
+      <a href="#work" style="font-family: var(--font-mono); font-size: 13px; color: var(--muted);" style-hover="color: var(--accent);">Work</a>
+      <a href="#experience" style="font-family: var(--font-mono); font-size: 13px; color: var(--muted);" style-hover="color: var(--accent);">Experience</a>
+      <a href="#skills" style="font-family: var(--font-mono); font-size: 13px; color: var(--muted);" style-hover="color: var(--accent);">Skills</a>
+      <a href="#contact" style="font-family: var(--font-mono); font-size: 13px; color: var(--muted);" style-hover="color: var(--accent);">Contact</a>
+    </div>
+  </nav>
+
+  <section id="top" style="min-height: 88vh; display: flex; align-items: center; gap: 64px; padding: 72px 48px 32px; max-width: 1280px; margin: 0 auto; flex-wrap: wrap;">
+    <div style="flex: 1 1 420px; min-width: 300px;">
+      <div style="font-family: var(--font-mono); font-size: 13px; letter-spacing: 1.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 18px;">Software Engineer &middot; AI Systems &amp; Security</div>
+      <h1 style="font-family: var(--font-head); font-size: 52px; font-weight: 700; line-height: 1.1; margin: 0 0 20px;">Pradyumna Anil Kumar Kubear</h1>
+      <p style="font-size: 18px; line-height: 1.65; color: var(--muted); max-width: 520px; margin: 0 0 32px;">Full-stack engineer and M.S. Computer Science graduate building AI agents, mobile apps, and the forensic and security tooling that keeps them trustworthy.</p>
+      <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 28px;">
+        <a href="assets/Pradyumna-Kubear-Resume.pdf" download="Pradyumna-Kubear-Resume.pdf" style="font-family: var(--font-mono); font-size: 14px; padding: 13px 24px; background: var(--accent); color: var(--bg); border-radius: 3px; font-weight: 700;" style-hover="opacity: 0.85;">Download Resume</a>
+        <a href="#work" style="font-family: var(--font-mono); font-size: 14px; padding: 13px 24px; border: 1px solid var(--border); color: var(--ink); border-radius: 3px;" style-hover="border-color: var(--accent); color: var(--accent);">View Work &darr;</a>
+      </div>
+      <div style="font-family: var(--font-mono); font-size: 13px; color: var(--muted);">Bengaluru, India &middot; pradyumkubeara@gmail.com</div>
+    </div>
+    <div style="flex: 1 1 360px; min-width: 280px; position: relative;">
+      <div style="border: 1px solid var(--border); border-radius: 6px; overflow: hidden;">
+        <img src="assets/portrait-dashboard.png" alt="Pradyumna presenting the Scam Shield AI detector suite" style="display: block; width: 100%; height: auto;" />
+      </div>
+      <div style="position: absolute; bottom: -14px; left: 18px; font-family: var(--font-mono); font-size: 12px; background: var(--panel); border: 1px solid var(--border); padding: 5px 10px; border-radius: 3px; color: var(--muted);">scam_shield_dashboard.png</div>
+    </div>
+  </section>
+
+  <div style="display: flex; justify-content: center; padding: 24px 0 36px;">
+    <div style="font-family: var(--font-mono); font-size: 12px; color: var(--muted); letter-spacing: 2px; animation: scrollBounce 2s ease-in-out infinite;">SCROLL</div>
+  </div>
+
+  <section id="about" data-reveal-key="about" style="max-width: 1280px; margin: 0 auto; padding: 24px 48px 100px; {{ aboutStyle }}">
+    <div style="font-family: var(--font-mono); font-size: 13px; letter-spacing: 1.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 14px;">About</div>
+    <p style="font-size: 20px; line-height: 1.7; max-width: 760px; margin: 0 0 40px;">I'm a software engineer based in Bengaluru with an M.S. in Computer Science from the University of the Pacific. My work spans full-stack web platforms, AI multi-agent systems, cross-platform mobile apps, and digital forensic analysis &mdash; with patented research along the way.</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; max-width: 760px;">
+      <div><div style="font-family: var(--font-mono); font-size: 12px; color: var(--muted); text-transform: uppercase; margin-bottom: 6px;">Location</div><div style="font-size: 15px;">Bengaluru, India</div></div>
+      <div><div style="font-family: var(--font-mono); font-size: 12px; color: var(--muted); text-transform: uppercase; margin-bottom: 6px;">Education</div><div style="font-size: 15px;">M.S. Computer Science, 2024</div></div>
+      <div><div style="font-family: var(--font-mono); font-size: 12px; color: var(--muted); text-transform: uppercase; margin-bottom: 6px;">Current Role</div><div style="font-size: 15px;">Systems Engineer, Infosys BPM</div></div>
+    </div>
+  </section>
+
+  <section id="work" style="max-width: 1280px; margin: 0 auto; padding: 24px 48px 60px;">
+    <div style="font-family: var(--font-mono); font-size: 13px; letter-spacing: 1.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 14px;">Case Studies</div>
+    <h2 style="font-family: var(--font-head); font-size: 36px; margin: 0 0 56px;">Selected Work</h2>
+
+    <div data-reveal-key="case1" style="display: flex; gap: 48px; align-items: flex-start; flex-wrap: wrap; margin-bottom: 96px; {{ case1Style }}">
+      <div style="flex: 1 1 420px; min-width: 280px; position: relative; border-radius: 6px; overflow: hidden; border: 1px solid var(--border); aspect-ratio: 4/3; background: #000;">
+        <video ref="{{ videoRef }}" controls="" poster="assets/portrait-dashboard.png" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          <source src="assets/scam-shield-film.mp4" type="video/mp4" />
+        </video>
+        <sc-if value="{{ notPlaying }}" hint-placeholder-val="{{ true }}">
+          <div onClick="{{ playVideo }}" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; cursor: pointer; background: linear-gradient(0deg, rgba(0,0,0,0.35), rgba(0,0,0,0.08));">
+            <div style="width: 64px; height: 64px; border-radius: 50%; background: var(--accent); color: var(--bg); display: flex; align-items: center; justify-content: center; font-size: 22px;">&#9658;</div>
+          </div>
+        </sc-if>
+      </div>
+      <div style="flex: 1 1 380px; min-width: 280px;">
+        <div style="font-family: var(--font-mono); font-size: 12px; color: var(--muted); text-transform: uppercase; margin-bottom: 10px;">Personal Project</div>
+        <h3 style="font-family: var(--font-head); font-size: 25px; margin: 0 0 16px;">Scam Shield &mdash; AI Fraud &amp; Misinformation Detector Suite</h3>
+        <p style="font-size: 15px; line-height: 1.7; color: var(--muted); margin: 0 0 18px;">A concept suite of ten AI-powered detectors covering everyday communication threats and manipulated digital content, built and demoed end to end in the film alongside.</p>
+        <div style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); margin-bottom: 8px;">DETECTORS</div>
+        <ul style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 8px 16px;">
+          <li style="font-size: 14px;">&#9656; Scam Call Detector</li>
+          <li style="font-size: 14px;">&#9656; Spam Email Detector</li>
+          <li style="font-size: 14px;">&#9656; Fraud Message Detector</li>
+          <li style="font-size: 14px;">&#9656; Phishing Website Detector</li>
+          <li style="font-size: 14px;">&#9656; Fake Document Detector</li>
+          <li style="font-size: 14px;">&#9656; Fake Face Detector</li>
+          <li style="font-size: 14px;">&#9656; Misinformation Image Detector</li>
+          <li style="font-size: 14px;">&#9656; Deepfake Video Detector</li>
+          <li style="font-size: 14px;">&#9656; Fraudulent Product Detector</li>
+          <li style="font-size: 14px;">&#9656; Fake News Detector</li>
+        </ul>
+      </div>
+    </div>
+
+    <div data-reveal-key="case2" style="display: flex; flex-direction: row-reverse; gap: 48px; align-items: flex-start; flex-wrap: wrap; margin-bottom: 96px; {{ case2Style }}">
+      <div style="flex: 1 1 380px; min-width: 280px;">
+        <div style="font-family: var(--font-mono); font-size: 12px; color: var(--muted); text-transform: uppercase; margin-bottom: 10px;">Neo Age Services &amp; Ambience Safety</div>
+        <h3 style="font-family: var(--font-head); font-size: 25px; margin: 0 0 16px;">Mobile Forensic Analysis &amp; Incident Investigation</h3>
+        <p style="font-size: 15px; line-height: 1.7; color: var(--muted); margin: 0 0 18px;">Forensic investigation work spanning two mobile-developer roles, examining digital evidence on Android devices and across enterprise networks.</p>
+        <sc-if value="{{ fullDetail }}" hint-placeholder-val="{{ true }}">
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px;">
+            <li style="font-size: 14px; line-height: 1.6; color: var(--muted);">&#9656; Conducted mobile forensic analysis of Android application artifacts, including application data, system logs, and metadata, to identify suspicious activities and potential digital evidence.</li>
+            <li style="font-size: 14px; line-height: 1.6; color: var(--muted);">&#9656; Applied mobile forensic investigation techniques to examine application behavior, analyze digital traces, and document findings while preserving evidence integrity.</li>
+            <li style="font-size: 14px; line-height: 1.6; color: var(--muted);">&#9656; Conducted digital forensic analysis of system logs, network traffic, and application artifacts using Wireshark and Linux tools to identify suspicious activities and potential security incidents.</li>
+            <li style="font-size: 14px; line-height: 1.6; color: var(--muted);">&#9656; Implemented forensic data collection and analysis workflows to examine digital evidence, detect anomalous behavior, and support incident investigation while maintaining evidence integrity.</li>
+          </ul>
+        </sc-if>
+      </div>
+      <div style="flex: 1 1 420px; min-width: 280px; position: relative; aspect-ratio: 4/3; border-radius: 6px; overflow: hidden; border: 1px solid var(--border); background: repeating-linear-gradient(135deg, var(--panel) 0px, var(--panel) 10px, var(--bg) 10px, var(--bg) 20px); display: flex; align-items: center; justify-content: center;">
+        <span style="font-family: var(--font-mono); font-size: 13px; color: var(--muted); background: oklch(0.16 0.02 255 / 0.75); padding: 6px 12px; border: 1px solid var(--border); border-radius: 3px;">forensic_artifacts.log</span>
+      </div>
+    </div>
+
+    <div data-reveal-key="case3" style="display: flex; gap: 48px; align-items: flex-start; flex-wrap: wrap; margin-bottom: 96px; {{ case3Style }}">
+      <div style="flex: 1 1 420px; min-width: 280px; position: relative; aspect-ratio: 4/3; border-radius: 6px; overflow: hidden; border: 1px solid var(--border); background: repeating-linear-gradient(135deg, var(--panel) 0px, var(--panel) 10px, var(--bg) 10px, var(--bg) 20px); display: flex; align-items: center; justify-content: center;">
+        <span style="font-family: var(--font-mono); font-size: 13px; color: var(--muted); background: oklch(0.16 0.02 255 / 0.75); padding: 6px 12px; border: 1px solid var(--border); border-radius: 3px;">diagnosis_portal.png</span>
+      </div>
+      <div style="flex: 1 1 380px; min-width: 280px;">
+        <span style="display: inline-block; font-family: var(--font-mono); font-size: 12px; color: var(--accent2); border: 1px solid var(--accent2); padding: 4px 10px; border-radius: 3px; margin-bottom: 14px;">INDIAN PATENT &middot; AUG 2019 &ndash; AUG 2020</span>
+        <h3 style="font-family: var(--font-head); font-size: 25px; margin: 0 0 16px;">Disease Diagnosis with Hospital &amp; Doctor Recommendation System</h3>
+        <p style="font-size: 15px; line-height: 1.7; color: var(--muted); margin: 0 0 18px;">A full-stack medical portal that recommends hospitals and doctors based on a predicted diagnosis.</p>
+        <sc-if value="{{ fullDetail }}" hint-placeholder-val="{{ true }}">
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px;">
+            <li style="font-size: 14px; line-height: 1.6; color: var(--muted);">&#9656; Developed full-stack medical portal using React, Node.js/Express, and Python ML models (Random Forest) for multi-label diagnosis tasks.</li>
+            <li style="font-size: 14px; line-height: 1.6; color: var(--muted);">&#9656; Designed PostgreSQL database and stored unstructured ML data via MongoDB for model output persistence.</li>
+          </ul>
+        </sc-if>
+      </div>
+    </div>
+
+    <div data-reveal-key="case4" style="display: flex; flex-direction: row-reverse; gap: 48px; align-items: flex-start; flex-wrap: wrap; {{ case4Style }}">
+      <div style="flex: 1 1 380px; min-width: 280px;">
+        <div style="font-family: var(--font-mono); font-size: 12px; color: var(--muted); text-transform: uppercase; margin-bottom: 10px;">Sai Vidya Institute of Technology &middot; Assistant Professor</div>
+        <h3 style="font-family: var(--font-head); font-size: 25px; margin: 0 0 16px;">Educational Video Production for Data Structures &amp; Algorithms</h3>
+        <p style="font-size: 15px; line-height: 1.7; color: var(--muted); margin: 0 0 18px;">Instructional content and accessibility auditing alongside a full teaching load.</p>
+        <sc-if value="{{ fullDetail }}" hint-placeholder-val="{{ true }}">
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px;">
+            <li style="font-size: 14px; line-height: 1.6; color: var(--muted);">&#9656; Created 5 Educational Videos using Claude and Co Pilot for Data Structures and Algorithms subject.</li>
+            <li style="font-size: 14px; line-height: 1.6; color: var(--muted);">&#9656; Tested the Institutional website using WAVE Extension.</li>
+            <li style="font-size: 14px; line-height: 1.6; color: var(--muted);">&#9656; Tutored 30 Business Analytics students on MySQL queries.</li>
+          </ul>
+        </sc-if>
+      </div>
+      <div style="flex: 1 1 420px; min-width: 280px; position: relative; aspect-ratio: 4/3; border-radius: 6px; overflow: hidden; border: 1px solid var(--border); background: repeating-linear-gradient(135deg, var(--panel) 0px, var(--panel) 10px, var(--bg) 10px, var(--bg) 20px); display: flex; align-items: center; justify-content: center;">
+        <span style="font-family: var(--font-mono); font-size: 13px; color: var(--muted); background: oklch(0.16 0.02 255 / 0.75); padding: 6px 12px; border: 1px solid var(--border); border-radius: 3px;">dsa_lecture_01.mp4</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" data-reveal-key="timeline" style="max-width: 1280px; margin: 0 auto; padding: 40px 48px 100px; {{ timelineHeadStyle }}">
+    <div style="font-family: var(--font-mono); font-size: 13px; letter-spacing: 1.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 14px;">Career Timeline</div>
+    <h2 style="font-family: var(--font-head); font-size: 36px; margin: 0 0 24px;">Experience</h2>
+    <div style="display: flex; flex-direction: column; border-left: 1px solid var(--border); margin-left: 6px; padding-left: 36px; margin-top: 32px;">
+      <sc-for list="{{ experienceItems }}" as="item" hint-placeholder-count="7">
+        <div style="position: relative; padding-bottom: 40px; {{ item.style }}">
+          <div style="position: absolute; left: -42px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg);"></div>
+          <div style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); margin-bottom: 6px;">{{ item.dates }}</div>
+          <div style="font-family: var(--font-head); font-size: 19px; font-weight: 600; margin-bottom: 2px;">{{ item.role }}</div>
+          <div style="font-size: 14px; color: var(--muted); margin-bottom: 10px;">{{ item.company }}</div>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; max-width: 680px;">
+            <sc-for list="{{ item.bullets }}" as="b" hint-placeholder-count="2">
+              <li style="font-size: 14px; line-height: 1.6; color: var(--muted);">&#9656; {{ b }}</li>
+            </sc-for>
+          </ul>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="education" data-reveal-key="education" style="max-width: 1280px; margin: 0 auto; padding: 24px 48px 100px; {{ educationStyle }}">
+    <div style="font-family: var(--font-mono); font-size: 13px; letter-spacing: 1.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 14px;">Education</div>
+    <h2 style="font-family: var(--font-head); font-size: 36px; margin: 0 0 40px;">Education</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+      <div style="background: var(--panel); border: 1px solid var(--border); border-radius: 6px; padding: 28px;">
+        <div style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); margin-bottom: 10px;">MAY 2024</div>
+        <div style="font-family: var(--font-head); font-size: 19px; font-weight: 600; margin-bottom: 6px;">M.S. in Computer Science</div>
+        <div style="font-size: 14px; color: var(--muted);">University of the Pacific, Stockton, CA</div>
+      </div>
+      <div style="background: var(--panel); border: 1px solid var(--border); border-radius: 6px; padding: 28px;">
+        <div style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); margin-bottom: 10px;">AUG 2020</div>
+        <div style="font-family: var(--font-head); font-size: 19px; font-weight: 600; margin-bottom: 6px;">B.E. in Computer Science</div>
+        <div style="font-size: 14px; color: var(--muted);">Rajarajeswari College of Engineering, Bengaluru, India</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" data-reveal-key="skills" style="max-width: 1280px; margin: 0 auto; padding: 24px 48px 100px; {{ skillsStyle }}">
+    <div style="font-family: var(--font-mono); font-size: 13px; letter-spacing: 1.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 14px;">Skills</div>
+    <h2 style="font-family: var(--font-head); font-size: 36px; margin: 0 0 40px;">Technical Skills</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px;">
+      <sc-for list="{{ skillCategories }}" as="cat" hint-placeholder-count="5">
+        <div style="background: var(--panel); border: 1px solid var(--border); border-radius: 6px; padding: 22px;">
+          <div style="font-family: var(--font-mono); font-size: 12px; color: var(--accent); text-transform: uppercase; margin-bottom: 14px;">{{ cat.name }}</div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <sc-for list="{{ cat.items }}" as="s" hint-placeholder-count="4">
+              <span style="font-size: 13px; font-family: var(--font-mono); background: var(--bg); border: 1px solid var(--border); padding: 4px 10px; border-radius: 3px;">{{ s }}</span>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="contact" data-reveal-key="contact" style="max-width: 1280px; margin: 0 auto; padding: 24px 48px 60px; text-align: center; {{ contactStyle }}">
+    <div style="font-family: var(--font-mono); font-size: 13px; letter-spacing: 1.5px; color: var(--accent); text-transform: uppercase; margin-bottom: 14px;">Contact</div>
+    <h2 style="font-family: var(--font-head); font-size: 36px; margin: 0 0 16px;">Let's build something</h2>
+    <p style="font-size: 16px; color: var(--muted); max-width: 480px; margin: 0 auto 32px;">Open to roles and collaborations in full-stack, AI systems, and security engineering.</p>
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 36px; font-family: var(--font-mono); font-size: 14px;">
+      <a href="mailto:pradyumkubeara@gmail.com">pradyumkubeara@gmail.com</a>
+      <a href="https://linkedin.com/in/pradyum98" target="_blank" rel="noopener">linkedin.com/in/pradyum98</a>
+      <a href="https://github.com/PradyumnaA" target="_blank" rel="noopener">github.com/PradyumnaA</a>
+    </div>
+    <a href="assets/Pradyumna-Kubear-Resume.pdf" download="Pradyumna-Kubear-Resume.pdf" style="display: inline-block; font-family: var(--font-mono); font-size: 14px; padding: 13px 28px; background: var(--accent); color: var(--bg); border-radius: 3px; font-weight: 700;" style-hover="opacity: 0.85;">Download Resume</a>
+  </section>
+
+  <footer style="text-align: center; padding: 28px; font-family: var(--font-mono); font-size: 12px; color: var(--muted); border-top: 1px solid var(--border);">&copy; 2026 Pradyumna Anil Kumar Kubear</footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;revealStyle&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;Slide Up&quot;, &quot;options&quot;: [&quot;Slide Up&quot;, &quot;Fade Only&quot;, &quot;Scale In&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Motion&quot; },
+  &quot;timelineOrder&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;Most Recent First&quot;, &quot;options&quot;: [&quot;Most Recent First&quot;, &quot;Chronological (Oldest First)&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Content&quot; },
+  &quot;showFullDetail&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Content&quot; }
+}">
+const RAW_EXPERIENCE = [
+  { dates: "Jul 2026 \u2013 Present", role: "Systems Engineer", company: "Infosys BPM \u00b7 Bengaluru, India", bullets: [
+    "Developed 3 full-stack web applications for hospitals by integrating frontend interfaces with scalable backend services like AWS.",
+    "Built 4 business-oriented LangGraph multi-agent applications that analyze RFPs, company-specific documents, and architecture documents to generate actionable insights."
+  ]},
+  { dates: "Jan 2026 \u2013 Jul 2026", role: "Assistant Professor", company: "Sai Vidya Institute of Technology \u00b7 Bengaluru, India", bullets: [
+    "Created 5 Educational Videos using Claude and Co Pilot for Data Structures and Algorithms subject.",
+    "Tutored 30 Business Analytics students on MySQL queries."
+  ]},
+  { dates: "Jul 2025 \u2013 Nov 2025", role: "Mobile Application Developer", company: "Neo Age Services \u00b7 Houston, TX (Remote)", bullets: [
+    "Built 5 production-grade cross-platform mobile apps using React Native and TypeScript with modern state management (Redux/Context).",
+    "Developed 5 Node.js + Express backend services in TypeScript, integrating PostgreSQL and MongoDB for data persistence."
+  ]},
+  { dates: "Jan 2024 \u2013 Jun 2025", role: "Research Assistant", company: "University of the Pacific \u00b7 Stockton, CA", bullets: [
+    "Conducted research on ovarian cancer prediction using supervised learning models, including regression and Random Forest classifiers.",
+    "Generated synthetic datasets using publicly available Kaggle data and Generative Adversarial Network (GAN) techniques to address data imbalance."
+  ]},
+  { dates: "Jan 2023 \u2013 May 2024", role: "Teaching Assistant", company: "University of the Pacific \u00b7 Stockton, CA", bullets: [
+    "Mentored and supported 40+ undergraduate students in Python programming, computer science fundamentals, and object-oriented programming concepts.",
+    "Delivered 10+ instructional sessions on object-oriented programming concepts, including inheritance and polymorphism."
+  ]},
+  { dates: "Feb 2022 \u2013 Jul 2022", role: "Mobile Application Developer", company: "Ambience Safety \u00b7 Bengaluru, India", bullets: [
+    "Developed 8 mobile applications in React Native using modular UI components and Redux + Context API for efficient state management.",
+    "Implemented OAuth2-based authentication via Google Cloud, improving session security and reducing login errors by 40%."
+  ]},
+  { dates: "Dec 2020 \u2013 Dec 2021", role: "Web Developer", company: "Syslog Technologies \u00b7 Bengaluru, India", bullets: [
+    "Developed React-based City Management System with Node.js/Express for municipal reporting and data visualization.",
+    "Managed relational schemas in MySQL and PostgreSQL; implemented REST APIs for data retrieval and reporting."
+  ]}
+];
+
+const RAW_SKILLS = [
+  { name: "Frontend", items: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "React Native", "Next.js", "Redux", "Context API"] },
+  { name: "Backend", items: ["Node.js", "Express", "REST APIs"] },
+  { name: "Databases", items: ["PostgreSQL", "MySQL", "MongoDB"] },
+  { name: "Cloud & DevOps", items: ["AWS (S3, SageMaker)", "Firebase"] },
+  { name: "Tools", items: ["Git", "GitHub", "Postman"] }
+];
+
+class Component extends DCLogic {
+  state = { visible: {}, videoPlaying: false };
+  rootEl = null;
+  observer = null;
+  videoRef = React.createRef();
+
+  setRootRef = (el) => {
+    if (el && !this.rootEl) {
+      this.rootEl = el;
+      requestAnimationFrame(() => this.initObserver());
+    }
+  };
+
+  initObserver() {
+    if (this.observer || !this.rootEl) return;
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const key = entry.target.getAttribute("data-reveal-key");
+          if (key) {
+            this.setState((prev) => (prev.visible[key] ? null : { visible: { ...prev.visible, [key]: true } }));
+          }
+          this.observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    this.rootEl.querySelectorAll("[data-reveal-key]").forEach((el) => this.observer.observe(el));
+  }
+
+  componentWillUnmount() {
+    if (this.observer) this.observer.disconnect();
+  }
+
+  reveal(key, distance) {
+    distance = distance || 28;
+    const v = !!this.state.visible[key];
+    const styleMode = this.props.revealStyle || "Slide Up";
+    let transform = "none";
+    if (styleMode === "Scale In") transform = v ? "scale(1)" : "scale(0.94)";
+    else if (styleMode === "Slide Up") transform = v ? "translateY(0)" : "translateY(" + distance + "px)";
+    return "opacity:" + (v ? 1 : 0) + ";transform:" + transform + ";transition:opacity .7s cubic-bezier(.22,.7,.3,1), transform .7s cubic-bezier(.22,.7,.3,1);";
+  }
+
+  staggerReveal(key, i, distance) {
+    distance = distance || 20;
+    const v = !!this.state.visible[key];
+    const delay = v ? i * 0.08 : 0;
+    const styleMode = this.props.revealStyle || "Slide Up";
+    let transform = "none";
+    if (styleMode === "Scale In") transform = v ? "scale(1)" : "scale(0.94)";
+    else if (styleMode === "Slide Up") transform = v ? "translateY(0)" : "translateY(" + distance + "px)";
+    return "opacity:" + (v ? 1 : 0) + ";transform:" + transform + ";transition:opacity .6s ease " + delay + "s, transform .6s ease " + delay + "s;";
+  }
+
+  playVideo = () => {
+    this.setState({ videoPlaying: true });
+    requestAnimationFrame(() => {
+      if (this.videoRef.current) this.videoRef.current.play();
+    });
+  };
+
+  renderVals() {
+    let order = RAW_EXPERIENCE;
+    if (this.props.timelineOrder === "Chronological (Oldest First)") order = RAW_EXPERIENCE.slice().reverse();
+    const experienceItems = order.map((item, i) => ({ ...item, style: this.staggerReveal("timeline", i, 24) }));
+
+    return {
+      setRootRef: this.setRootRef,
+      aboutStyle: this.reveal("about"),
+      case1Style: this.reveal("case1", 36),
+      case2Style: this.reveal("case2", 36),
+      case3Style: this.reveal("case3", 36),
+      case4Style: this.reveal("case4", 36),
+      timelineHeadStyle: this.reveal("timeline"),
+      educationStyle: this.reveal("education"),
+      skillsStyle: this.reveal("skills"),
+      contactStyle: this.reveal("contact"),
+      experienceItems,
+      skillCategories: RAW_SKILLS,
+      videoRef: this.videoRef,
+      notPlaying: !this.state.videoPlaying,
+      playVideo: this.playVideo,
+      fullDetail: this.props.showFullDetail ?? true
+    };
+  }
+}
+</script>
+</body>
+</html>
